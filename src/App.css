@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Smooch&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 html
 {
@@ -444,10 +445,50 @@ html::before {
   display: flex;
   align-items: center;
 }
+.event-desc-right-col
+{
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+  align-items: center;
+}
+
+.event-desc-right-col p
+{
+  margin: 0;
+}
 
 .lightinganim
 {
-  animation: fadeinout 0.1s linear infinite forwards;
+  animation: heart 3s linear infinite forwards;
+}
+
+@keyframes heart
+{
+  0%
+  {
+    opacity:0.45
+  }
+  20%
+  {
+    opacity: 0.75
+  }
+  40%
+  {
+    opacity:0.45
+  }
+  60%
+  {
+    opacity:0.75
+  }
+  80%
+  {
+    opacity:0.45
+  }
+  100%
+  {
+    opacity:0.45
+  }
 }
 
 @keyframes lighting {
@@ -493,15 +534,48 @@ html::before {
 
 .event-list-right
 {
-  color: #0088EC;
+  color: #fff;
   font-size: 90px;
   font-weight: bold;
   display: flex;
   align-items: center;
   flex:1;
-  font-family: 'Sriracha', cursive;
+  font-family: 'VT323', monospace;
+  animation: blink 1.5s infinite alternate;
 }
 
+.event-details-name
+{
+  color: #fff;
+  font-size: 90px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-family: 'VT323', monospace;
+  animation: blink 1.5s infinite alternate;
+}
+.event-details
+{
+  color: #fff;
+  font-size: 24px;
+  line-height: 30px;
+  flex:1;
+  font-family: 'VT323', monospace;
+  margin-bottom: 40px;
+}
+
+.event-details-container
+{
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+@keyframes blink {
+  100% {
+    text-shadow: 0 0 2px #000, 0 0 5px #000, 0 0 10px #000, 0 0 20px #0ba9ca, 0 0 35px #0ba9ca, 0 0 40px #0ba9ca;
+  }
+}
 @keyframes fadeinout {
   0% { opacity: 0; }
   50% { opacity: 0.7; }

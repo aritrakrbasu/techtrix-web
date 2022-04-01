@@ -16,12 +16,12 @@ function EventsList() {
     <center>
         <h2 className='event-section-header'>Events</h2>
     </center>
-    <Link to="/events/automata"><div className='event-list-container'>
+    <Link to="/events/robotics"><div className='event-list-container'>
         <div className='event-list-left'>
-            <img src={automata} className="fadeanim" />
+            <img src={robotics} className="fadeanim" />
         </div>
         <div className='event-list-right ml-drag'>
-            Automata
+            Robotics
         </div>
     </div></Link>
     <Link to="/events/geeks"><div className='event-list-container'>
@@ -41,12 +41,12 @@ function EventsList() {
             Flagship
         </div>
     </div></Link>
-    <Link to="/events/robotics"><div className='event-list-container'>
+    <Link to="/events/automata"><div className='event-list-container'>
     <div className='event-list-right mr-drag'>
-            <p>Robotics</p>
+            <p>Automata</p>
         </div>
         <div className='event-list-left'>
-            <img src={robotics} className="fadeanim" />
+            <img src={automata} className="fadeanim" />
         </div>
        
     </div></Link>

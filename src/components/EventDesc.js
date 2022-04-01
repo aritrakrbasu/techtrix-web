@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Navbar from './Navbar'
 import automata from '../assets/automata.png'
 import geeks from '../assets/geeks.png'
@@ -13,9 +13,10 @@ function EventDesc() {
     let { eventCategory } = useParams();
     var  types ={
         robotics : {
+            name:"Robotics",
             eventList : [
-                "Road Rash (Single Race)", 
                 "Need for Speed (Dual Race)",
+                "Road Rash (Single Race)", 
                 "Final Kick (Soccer)" ,
                 "Street Fighter (Lightweight war 5 kg)",
                " Mortal Kombat (Heavyweight War 15 kg)",
@@ -25,6 +26,7 @@ function EventDesc() {
             img : robotics
         },
         gaming : {
+            name:"Gaming",
             eventList : [
                 "BGMI- Mobile Gaming",
                 "PES 2021 OR 2020- Mobile Gaming",
@@ -33,6 +35,7 @@ function EventDesc() {
             img : gaming
         },
         flagship : {
+            name:"Flagship",
             eventList : [
                 "Mind’s Eye (Entrepreneurship)",
                 "Extempore",
@@ -42,8 +45,9 @@ function EventDesc() {
             img : flagship
         },
         automata : {
+            name:"Automata",
             eventList : [
-                "Web and App Developmen",
+                "Web and App Development",
                 "Competitive Programming",
                 "Machine Learning",
                 "Bug Finder",
@@ -52,6 +56,7 @@ function EventDesc() {
             img : automata
         },
         outofthebox : {
+            name:"Out Of The Box",
             eventList : [
                 "Rubik's Cube (Puzzle Solving)",
                 "Treasure Hunt",
@@ -61,6 +66,7 @@ function EventDesc() {
             img : outofthebox
         },
         geeks : {
+            name:"Geek",
             eventList : [
                " Techie's 'Halo' (Domain Quiz)",
                " Word's Worth (Verbose)",
@@ -71,7 +77,8 @@ function EventDesc() {
             ],
             img : geeks
         },
-        artfact : {
+        artfacts : {
+            name:"Art Facts",
             eventList : [
                 "T-shirt Painting",
                 "Da Vinci's Code (Portrait Portrayal)",
@@ -83,6 +90,12 @@ function EventDesc() {
             img : artfact
         },
     }
+
+    function convertToSlug(Text) {
+  return Text.toLowerCase()
+             .replace(/ /g, '-')
+             .replace(/[^\w-]+/g, '');
+}
   return (
     <div className='bg-solid h-100'>
             <Navbar />
@@ -91,10 +104,13 @@ function EventDesc() {
                     <img src={types[eventCategory].img} className="lightinganim" />
                 </div>
                 <div className='event-desc-right'>
+                    <div className='event-list-right'>
+                        <p>{types[eventCategory].name}</p>
+                    </div>
                     <ul>
                         {
                             types[eventCategory].eventList.map((eventName)=>{
-                                return (<li>{eventName}</li>)
+                                return (<Link to ={`/eventsDetails/${convertToSlug(eventName)}`} ><li>{eventName}</li></Link>)
                             })
                         }
                     </ul>

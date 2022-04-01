@@ -6,6 +6,7 @@ import Events from './components/Events';
 import About from './components/About';
 import EventsList from './components/EventsList';
 import EventDesc from './components/EventDesc';
+import EventModal from './components/EventModal';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="about" element={<About />} />
         <Route exact path="events" element={<EventsList />} />
         <Route exact path="events/:eventCategory" element={<EventDesc />} />
+        <Route exact path="eventsDetails/:eventDetails" element={<EventModal />} />
       </Routes>
     </>
   );
