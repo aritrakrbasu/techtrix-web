@@ -16,7 +16,7 @@ function App() {
         <Route exact path="about" element={<About />} />
         <Route exact path="events" element={<EventsList />} />
         <Route exact path="events/:eventCategory" element={<EventDesc />} />
-        <Route exact path="eventsDetails/:eventDetails" element={<EventModal />} />
+        <Route exact path="eventsDetails/:eventName" element={<EventModal />} />
       </Routes>
     </>
   );

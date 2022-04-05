@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import Navbar from './Navbar'
 import automata from '../assets/automata.png'
@@ -11,82 +11,43 @@ import robotics from '../assets/robotics.png'
 
 function EventDesc() {
     let { eventCategory } = useParams();
+
+    const [eventList,setEventList] = useState([])
+
+    useEffect(()=>{
+        console.log(eventCategory)
+        fetch(`https://techtrix22.herokuapp.com/search/search_category/${encodeURIComponent(eventCategory)}/`).then(res=>{
+            return res.json()
+        }).then((data)=>setEventList(data))
+    },[])
+
     var  types ={
         robotics : {
             name:"Robotics",
-            eventList : [
-                "Need for Speed (Dual Race)",
-                "Road Rash (Single Race)", 
-                "Final Kick (Soccer)" ,
-                "Street Fighter (Lightweight war 5 kg)",
-               " Mortal Kombat (Heavyweight War 15 kg)",
-                "The Legend of Zelda (Pick a Place)",
-                "Pac-Man (Line Follower)",
-            ],
             img : robotics
         },
         gaming : {
             name:"Gaming",
-            eventList : [
-                "BGMI- Mobile Gaming",
-                "PES 2021 OR 2020- Mobile Gaming",
-                "Valorant- Pc Gaming",
-            ],
             img : gaming
         },
         flagship : {
             name:"Flagship",
-            eventList : [
-                "Mind’s Eye (Entrepreneurship)",
-                "Extempore",
-                "Drop the MIc (Standup Comedy)",
-                "Coding",
-            ],
             img : flagship
         },
         automata : {
             name:"Automata",
-            eventList : [
-                "Web and App Development",
-                "Competitive Programming",
-                "Machine Learning",
-                "Bug Finder",
-                "Hackathon"
-            ],
             img : automata
         },
         outofthebox : {
             name:"Out Of The Box",
-            eventList : [
-                "Rubik's Cube (Puzzle Solving)",
-                "Treasure Hunt",
-                "One Shot",
-                "Antakshari"
-            ],
             img : outofthebox
         },
         geeks : {
             name:"Geek",
-            eventList : [
-               " Techie's 'Halo' (Domain Quiz)",
-               " Word's Worth (Verbose)",
-                " Matrix (Mathematics)",
-                "Spell Bee",
-                "SUDOKU",
-               " Fandom Quiz"
-            ],
             img : geeks
         },
         artfacts : {
             name:"Art Facts",
-            eventList : [
-                "T-shirt Painting",
-                "Da Vinci's Code (Portrait Portrayal)",
-                "Poster Design",
-                "Thousand Faces (Face Painting)",
-                "Behind the lens (Photography)",
-                
-            ],
             img : artfact
         },
     }
@@ -101,18 +62,19 @@ function EventDesc() {
             <Navbar />
             <div className='event-desc-container'>
                 <div className='event-desc-left'>
-                    <img src={types[eventCategory].img} className="lightinganim" />
+                    {
+                        <img src={'/assets/'+eventCategory+'.png'} className="lightinganim" />
+                    }
+                    
                 </div>
                 <div className='event-desc-right'>
                     <div className='event-list-right'>
-                        <p>{types[eventCategory].name}</p>
+                        <p>{eventList && eventList.length > 0 && eventList[0].category}</p>
                     </div>
                     <ul>
-                        {
-                            types[eventCategory].eventList.map((eventName)=>{
-                                return (<Link to ={`/eventsDetails/${convertToSlug(eventName)}`} ><li>{eventName}</li></Link>)
-                            })
-                        }
+                        {eventList && eventList.length > 0 && eventList.map(event =>{
+                            return (<Link to ={`/eventsDetails/${event._id}`} ><li>{event.name}</li></Link>)
+                        })}
                     </ul>
                 </div>
             </div>
