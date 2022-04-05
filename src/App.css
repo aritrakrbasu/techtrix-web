@@ -199,7 +199,8 @@ html::before {
 }
 
 .nav-logo-container img {
-  height: 40px;
+  height: 70px;
+  margin-top: 10px;
 }
 
 .nav-logo-container {
@@ -351,6 +352,8 @@ html::before {
 .event-desc-container {
   display: flex;
   min-height: calc(100vh - 50px);
+  padding-bottom: 40px;
+  margin-left: 40px;
 }
 
 .event-desc-left {
@@ -373,7 +376,7 @@ html::before {
 }
 
 .event-desc-right-col p {
-  margin: 0;
+  margin-right: 40px;
 }
 
 .lightinganim {
@@ -936,7 +939,7 @@ html::before {
   }
 
   .event-list-container {
-    margin: 50px 0px;
+    padding: 50px 0px;
   }
 
   .event-desc-left {
@@ -966,7 +969,7 @@ html::before {
 
   .event-desc-left {
     margin-left: auto !important;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     justify-content: center;
   }
@@ -986,7 +989,7 @@ html::before {
 
   .nav-logo-menu-container {
     z-index: 9999 !important;
-    margin-top: 30px;
+    margin-top: 70px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

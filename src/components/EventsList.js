@@ -15,7 +15,7 @@ function EventsList() {
     <div className='bg-solid'>
     <Navbar />
     <center>
-        <h2 className='event-section-header'>Events</h2>
+        <h2 className='event-section-header'>Categories</h2>
     </center>
     {
         categories && categories.length > 0 && categories.map((category,index)=>{
@@ -24,7 +24,7 @@ function EventsList() {
             return (
                 <Link to={"/events/"+category._id.toLowerCase()} key={index}><div className='event-list-container'>
                         <div className='event-list-left'>
-                            <img src={'./assets/' + category._id.toLowerCase()+'.png'} className="fadeanim" />
+                            <img src={'./assets/' + category._id.toLowerCase()+'-min.png'} className="fadeanim" />
                         </div>
                         <div className='event-list-right ml-drag'>
                             {category._id}
@@ -38,7 +38,7 @@ function EventsList() {
                         <p>{category._id}</p> 
                         </div>
                         <div className='event-list-left'>
-                            <img src={'./assets/' + category._id.toLowerCase()+'.png'} className="fadeanim" />
+                            <img src={'./assets/' + category._id.toLowerCase()+'-min.png'} className="fadeanim" />
                         </div>
                     
                     </div></Link>

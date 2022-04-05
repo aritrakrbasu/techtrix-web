@@ -1,13 +1,6 @@
 import React,{ useState, useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom';
 import Navbar from './Navbar'
-import automata from '../assets/automata.png'
-import geeks from '../assets/geeks.png'
-import flagship from '../assets/flagship.png'
-import gaming from '../assets/gaming.png'
-import artfact from '../assets/art fact.png'
-import outofthebox from '../assets/out of the box.png'
-import robotics from '../assets/robotics.png'
 
 function EventModal() {
     let { eventName } = useParams();
@@ -28,7 +21,7 @@ function EventModal() {
                     eventDetails ? (
                         <>
                         <div className='event-desc-left'>
-                            <img src={'/assets/'+eventDetails.category+'.png'} className="lightinganim" />
+                            <img src={'/assets/'+eventDetails.category+'-min.png'} className="lightinganim" />
                         </div>
                         <div className='event-desc-right-col'>
                             <div className='event-details-name'>

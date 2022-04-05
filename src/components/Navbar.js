@@ -1,5 +1,5 @@
 import React from 'react'
-import rccLogo from '../assets/rcc-white.png'
+import rccLogo from '../assets/rcclogo.png'
 import sideLines from '../assets/sideLines.svg'
 import robot from '../assets/robot.svg'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,6 @@ function Navbar() {
     <div className='nav-container'>
         <div className='nav-logo-container'>
             <img src={rccLogo} />
-            <h2>RCCIIT Presents</h2>
         </div>
         <div className='nav-logo-menu-container'>
             <ul>
